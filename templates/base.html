@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Nepali Amazon</title>
+        {% include "includes/loadstatics.html" %}
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!-- [if lt IE 9]>
+ 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+ 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+ 		<![endif] -->
+
+    </head>
+
+    <body>
+        <!-- HEADER -->
+        <header>
+            <!-- TOP HEADER -->
+            {% include "includes/top-header.html" with user_profile_form=user_profile_form user_form=user_form  %}
+            <!-- /TOP HEADER -->
+
+            <!-- MAIN HEADER -->
+            {% include "includes/main-header.html" with cartlist=cartItems wishList=wishItems subTotal=subTotal total=total %}
+
+            <h1 style="margin-top: 8px; color:rgb(247, 7, 7);text-align: center;">
+                हामी नेपाली येमेज़नको तर्फबाट तपाइलाई हार्दिक
+                स्वागत गर्दछौ ।
+            </h1>
+            <!-- /MAIN HEADER -->
+        </header>
+        <!-- /HEADER -->
+
+        <!-- NAVIGATION -->
+        {% include "includes/navigation.html" %}
+        <!-- /NAVIGATION -->
+
+        <a onclick="scroll2top();" id="scroll2top" class="float" style="display: none; cursor: pointer;">
+            <img src="{% static "img/top.png" %}" class="my-float" alt="Missing">
+        </a>
+
+        <a href="{% url 'creatememe' %}">Create Meme?</a>
+        {% block bodyblock %}
+        <!-- FOOTER -->
+        {% include "includes/footer.html" %}
+        <!-- /FOOTER -->
+
+        <!-- jQuery Plugins -->
+        {% include "includes/scripts.html" %}
+        <!-- /jQuery Plugins -->
+        {% endblock %}
+    </body>
+
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #0C9;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+        }
+
+        .my-float {
+            margin-top: 22px;
+            height: 20px;
+            width: 25px;
+            align-self: center;
+        }
+
+        .cart-dropdown,
+        .modal-content {
+            box-shadow: inset 0px 3px 10px;
+        }
+
+    </style>
+
+
+</html>

@@ -1,0 +1,80 @@
+{% load static %}
+
+<div id="header">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- LOGO -->
+            <div class="col-md-3 col-lg-3 col-sm-12">
+                <div class="row">
+                    <!-- <div class="col-2">
+                        <div style="font-size: larger;float: right;margin-right: 20px;" class="menu-toggle mr-3 pr-3">
+                            <a href="{% url 'product:product_list' %}">
+                                <i class="fa fa-bars fa-2x"> Menu</i>
+                            </a>
+                        </div>
+                    </div> -->
+
+                    <div class="col-8">
+                        <div class="header-logo">
+                            <a href="{% url 'home' %}" class="logo">
+                                <img src="{% static 'images/weblogo.png' %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /LOGO -->
+
+
+            <!-- SEARCH BAR -->
+            <div class="col-md-6 col-lg-6 col-sm-12">
+                <div class="header-search">
+                    {% csrf_token %}
+                    <form action="{% url 'search:result_list' %}" class="search">
+                        <select name="catsel" id="category" class="input-select" value="{{request.GET.catsel}}">
+                            <option value="0">All Categories</option>
+                            {% for cat in maincategory %}
+                            <option value={{cat.id}}>{{cat.name}}</option>
+                            {% endfor %}
+                        </select>
+                        <input style="color: grey;" id="query" class="input" name="q" placeholder="Search here"
+                            value="{{request.GET.q}}">
+                        <button type="submit" class="search-btn">Search</button>
+
+                    </form>
+                </div>
+
+            </div>
+            <!-- /SEARCH BAR -->
+
+            <!-- ACCOUNT -->
+            <div class="col-md-3 col-lg-3 col-sm-12 clearfix">
+
+                <!-- Wishlist -->
+                <div class="row">
+
+                    <div class="col-6 align-left">
+                        <div class="wish-div">
+                            {% include "includes/wish-box-snippet.html" %}
+                        </div>
+                    </div>
+                    <!-- Cart -->
+                    <div class="col-6 align-left">
+                        <div class="cart-div">
+                            {% include "includes/cart-box-snippet.html" %}
+                        </div>
+                    </div>
+
+
+                    <!-- /ACCOUNT -->
+                </div>
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </div>
+</div>

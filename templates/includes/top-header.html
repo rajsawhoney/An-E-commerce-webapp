@@ -1,0 +1,136 @@
+<div id="top-header">
+    <div class="container">
+        <ul class="header-links pull-left">
+            <li><a href="#"><i class="fa fa-phone"></i> +977-9817859093</a></li>
+            <li><a href="#"><i class="fa fa-envelope-o"></i> techguys@gmail.com</a></li>
+            <li><a href="#"><i class="fa fa-map-marker"></i> Siddha Kali Chowk
+                    Dharan-15, Sunsari,Nepal</a></li>
+            <li class="ml-3 text-right" style="font-size: larger;"><a href="https://lets-hookup.herokuapp.com"> <i
+                        class="fa
+                        fa-newspaper-o" aria-hidden="true"></i> Read Blogs</a></li>
+        </ul>
+
+        <div style="float:right;">
+            <nav class="navbar sticky-top">
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li><a class="nav-link" href="#"><i style="color: red;" class="fa fa-dollar"></i> NP</a>
+                        </li>
+                        {% if request.user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><i style="color: red;"><img style="height: 30px;width:30px;border-radius: 50%;" src="{{userinfo.profile_pic.url}}" width="30px"
+                                        alt=""></i> {{request.user|capfirst}}</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <ul>
+                                    <li class="nav-link"><a class="dropdown-item" href="{% url 'accounts:myprofile'
+                                            %}"><i style="color: red;" class="fa fa-user-circle-o"
+                                                aria-hidden="true"></i> My
+                                            Profile</a></li>
+                                    <li class="nav-link"><a class="dropdown-item"
+                                            href="{{userinfo.get_absolute_url}}"><i style="color: red;"
+                                                class="fa fa-user-plus" aria-hidden="true"></i> Edit
+                                            Profile </a></li>
+                                    <li class="nav-link"><a class="dropdown-item" href="{% url
+                                            'accounts:password-change' %}"><i style="color: red;" class="fa fa-codepen"
+                                                aria-hidden="true"></i> Change
+                                            Passwd </a></li>
+                                    <li class="nav-link"><a class="dropdown-item" href="{% url
+                                            'accounts:logout' %}"><i style="color: red;" class="fa
+                                                fa-sign-out" aria-hidden="true"></i>
+                                            Logout </a></li>
+
+                                </ul>
+
+                            </div>
+                        </li>
+                        {% else %}
+                        <li><a class="nav-link" href="{% url 'accounts:login'%}"><i style="color: red;"
+                                    class="fa fa-sign-in" aria-hidden="true"></i>
+                                Login</a>
+                        </li>
+
+                        <li><a class="nav-link" href="" data-toggle="modal" data-target="#myModal"><i
+                                    style="color: red;" class="fa fa-sign-out" aria-hidden="true"></i> Sign Up</a>
+                        </li>
+
+                        {% endif %}
+
+                        <li>
+                            <a class="nav-link float-right" style="cursor: pointer;" id='mode-toggler' onclick="toggle_mode();">
+                                {% if not request.session.dark_mode %}
+                                <i class="fa fa-2x fa-globe" aria-hidden="true"></i>
+                                <span style="font-size: large;">
+                                    Enable Dark Mode
+                                </span>
+                                {% else %}
+                                <i class="fa fa-2x fa-globe" aria-hidden="true"></i> <span style="font-size: large;">
+                                    Enable Light Mode
+                                </span>
+                                {% endif %}
+                                </span>
+
+                            </a>
+
+
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-3">
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h2 class="modal-title text-primary">Sign Up Form</h2>
+                    <button type="button" class="close" style="font-size: 55px;
+                        color:black;" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class='container-fluid'>
+                        <form class='form-group-md' enctype="multipart/form-data" action="{% url
+                            'accounts:signup' %}" method="post">
+                            {% csrf_token %}
+                            {{user_form.as_p}}
+                            {{user_profile_form.as_p}}
+                            <input class="btn btn-lg btn-primary" type="submit" value='Sign up'>
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    li {
+        padding-right: 13px;
+        padding-left: 13px;
+    }
+
+
+    .nav-link {
+        color: white;
+
+    }
+
+</style>

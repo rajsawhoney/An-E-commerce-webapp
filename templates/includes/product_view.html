@@ -1,0 +1,82 @@
+<div class="wish-cart-status-div">
+    {% include "wish-cart-status-model.html" %}
+</div>
+
+<div class="products-slick pb-3" data-nav="#slick-nav-1">
+
+    {% for product in categoryctx %}
+    <!-- product -->
+    <div class="product">
+        <div class="product-img">
+            <a href="{{product.get_absolute_url}}"><img src="{{ product.thumbnail.url }}" alt="Product Image"
+                    height="225px" width="265px"></a>
+            <div class="product-label">
+                <span class="sale">SAVE {{product.discount}}%</span>
+                <span class="new">{{product.product_tag}}</span>
+            </div>
+        </div>
+        <div style="height:250px;" class="product-body">
+            <p class="product-category">{{product.category}}</p>
+            <h3 class="product-name">
+                <a href="{{product.get_absolute_url}}"><span style="color:blue">{{product.name}}</span></a>
+                <!-- <a href="{% url 'product:detail_view' pk=product.id %}"><span
+                        style="color:blue">{{product.name}}</span></a> -->
+            </h3>
+
+            <p class='product-category'>Product
+                added on:-<br> {{product.updated_at|timesince}} ago</p>
+            <h4 class="product-price">NRs.
+                {{product.price_amount}} <del class="product-old-price">NRs.
+                    {{product.old_price}}</del>
+            </h4>
+            <div class="product-rating">
+                {% if product.overall_rating %}
+                {% for i in "x"|rjust:product.overall_rating %}
+                <i class="fa fa-star"></i>
+                {% endfor %}
+
+                {% if product.overall_rating < 5 %}
+                <i class="fa fa-star-o"></i>
+                {% endif %}
+
+                {% else %}
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                {% endif %}
+
+
+            </div>
+            <div class="product-btns">
+                <form action="{% url 'cart:add-to-wishList' pk=product.slug %}" class="add-to-wish add-to-wishlist">
+                    <button class="add-to-wishlist dark-mode">
+                        <i class="fa fa-heart-o"></i>
+                        <span class="tooltipp">add to wishlist</span>
+                    </button>
+                </form>
+
+                <button class="add-to-compare"><a href="#compare"><i class="fa fa-exchange"></i><span
+                            class="tooltipp">add to
+                            compare</span></a>
+                </button>
+
+                <button class='quick-view'> <a href="{{product.get_absolute_url}}"><i class="fa fa-eye"></i><span
+                            class="tooltipp">quick
+                            view</span></a>
+                </button>
+
+            </div>
+        </div>
+        <div class=" mb-3 pb-2">
+            <form action="{% url 'cart:add-to-cart' pk=product.slug %}" class="add-to-cart add-to-cart1" method="get">
+                <button class="add-to-cart-btn" id="{{product.slug}}"> <i class="fa fa-shopping-cart"></i>add to
+                    cart</button>
+            </form>
+        </div>
+    </div>
+
+    {% endfor %}
+    <!-- /product -->
+</div>

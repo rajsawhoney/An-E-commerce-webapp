@@ -1,0 +1,641 @@
+[
+{
+    "model": "product.category",
+    "pk": 1,
+    "fields": {
+        "name": "ACCESSORIES",
+        "description": "Accessories are available",
+        "background_image": "category_images/product05.png"
+    }
+},
+{
+    "model": "product.category",
+    "pk": 2,
+    "fields": {
+        "name": "LAPTOP",
+        "description": "Best Laptops of all brands are available at very best deals.",
+        "background_image": "category_images/unnamed.png"
+    }
+},
+{
+    "model": "product.category",
+    "pk": 3,
+    "fields": {
+        "name": "SMARTPHONE",
+        "description": "Best smartphones are available at our store",
+        "background_image": "category_images/smartphones.png"
+    }
+},
+{
+    "model": "product.category",
+    "pk": 4,
+    "fields": {
+        "name": "CAMERA",
+        "description": "All the best Quality cameras are available in our store.",
+        "background_image": "category_images/images.jpg"
+    }
+},
+{
+    "model": "product.producttype",
+    "pk": 1,
+    "fields": {
+        "name": "Accessories and parts",
+        "has_variants": true,
+        "is_shipping_required": true,
+        "is_digital": true
+    }
+},
+{
+    "model": "product.producttype",
+    "pk": 2,
+    "fields": {
+        "name": "Tablet",
+        "has_variants": true,
+        "is_shipping_required": true,
+        "is_digital": true
+    }
+},
+{
+    "model": "product.producttype",
+    "pk": 3,
+    "fields": {
+        "name": "Smart phone",
+        "has_variants": true,
+        "is_shipping_required": true,
+        "is_digital": true
+    }
+},
+{
+    "model": "product.producttype",
+    "pk": 4,
+    "fields": {
+        "name": "Cameras",
+        "has_variants": true,
+        "is_shipping_required": true,
+        "is_digital": false
+    }
+},
+{
+    "model": "product.producttype",
+    "pk": 5,
+    "fields": {
+        "name": "Laptops&Desktops",
+        "has_variants": true,
+        "is_shipping_required": true,
+        "is_digital": true
+    }
+},
+{
+    "model": "product.producttype",
+    "pk": 6,
+    "fields": {
+        "name": "TEST",
+        "has_variants": true,
+        "is_shipping_required": true,
+        "is_digital": false
+    }
+},
+{
+    "model": "product.product",
+    "pk": 1,
+    "fields": {
+        "name": "HeadPhone Beat",
+        "product_type": 1,
+        "thumbnail": "product_thumnails/headphone-beat-images_2.jpg",
+        "description": "IOT Training:\r\n\r\nDay -1: All about IOT\r\nWhat is IOT?\r\nWhy do we need IOT?\r\nApplications of IOT\r\nCase Study- Smart City through Video demo and slides\r\nIOT Control system(App control,web control)\r\nIOT Control Devices(NodeMCU)\r\nDay-2: Arduino and arduino Programming\r\nIntroduction to arduino\r\nIts microcontroller and working\r\n Arduino Programming:\r\nIDE setup\r\nBasic arduino program structure or format\r\nCode flow\r\nDifferent libraries\r\n\r\nDay-3:Demo Projects:\r\nDifferent Components and interfacing\r\nLed blinking\r\nPotentiometer value reading and displaying\r\nLDR value reading and displaying and further applications(like person counter, attendance system)\r\nDTH11 sensor interfacing and displaying temp and hum\r\nDay-4:App controlled IOT(Blynk app):\r\nBlynk app installation and widgets creation(Led button,Fan button,Temp & Hum Display widget)\r\nApp setup in arduino program code\r\n\r\nDay-5: Web Controlled IOT(ACESS PART)\r\nButtons creation, display board for temp and humidity  -->Front End\r\nAPI making, database creation,table creation, data entry etc\r\nGET/POST requests\r\nData posting and retrieving commands from server in arduino code\r\n\r\nDay-6: Project one(Home Automation)\r\nLight Control(based on light intensity(LDR))\r\nFan Control(Temp controlled)\r\nData logger(Temp and Humidity)\r\nDoor locking system\r\nDay-7: Google Assistant Implementation in project one",
+        "category": 1,
+        "price_amount": "45565.00",
+        "old_price": "50000.00",
+        "updated_at": "2020-04-01T16:45:22.210Z",
+        "charge_taxes": true,
+        "ratings": 4,
+        "slug": "beat-ka-headphone"
+    }
+},
+{
+    "model": "product.product",
+    "pk": 2,
+    "fields": {
+        "name": "Acer A515-54G 15\" 12 GB RAM i7 8th gen",
+        "product_type": 5,
+        "thumbnail": "product_thumnails/acer-a515-54g-15-12-gb-ram-i7-8th-gen-product03.png",
+        "description": "Acer Aspire is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\n\r\nAcer Aspire is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\nAcer Aspire is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\nAcer Aspire is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\n\r\nAcer Aspire is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2",
+        "category": 2,
+        "price_amount": "90400.00",
+        "old_price": "110000.00",
+        "updated_at": "2020-04-01T16:45:07.092Z",
+        "charge_taxes": true,
+        "ratings": 4,
+        "slug": "acer-ka-laptop"
+    }
+},
+{
+    "model": "product.product",
+    "pk": 3,
+    "fields": {
+        "name": "Canon DSLR Camera",
+        "product_type": 4,
+        "thumbnail": "product_thumnails/canon-dslr-camera-download.jpg",
+        "description": "Canon DSLR Camera with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\n\r\nCanon DSLR Camera with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\nCanon DSLR Camera with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2",
+        "category": 4,
+        "price_amount": "45000.00",
+        "old_price": "54000.00",
+        "updated_at": "2020-04-01T16:44:54.473Z",
+        "charge_taxes": true,
+        "ratings": 4,
+        "slug": "dslr-camera"
+    }
+},
+{
+    "model": "product.product",
+    "pk": 4,
+    "fields": {
+        "name": "HP LAPTOP 15.6\" i7 8th gen 8GB RAM 1TB HDD 256GB SSD",
+        "product_type": 5,
+        "thumbnail": "product_thumnails/hp-laptop-156-i7-8th-gen-8gb-ram-1tb-hdd-256gb-ssd-421-4210903_transpa_8Argcgx.png",
+        "description": "Hp Laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\n\r\nHp Laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\n\r\nHp Laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\nHp Laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2",
+        "category": 2,
+        "price_amount": "98500.00",
+        "old_price": "120000.00",
+        "updated_at": "2020-04-01T16:44:43.692Z",
+        "charge_taxes": true,
+        "ratings": 3,
+        "slug": "Hp-laptop"
+    }
+},
+{
+    "model": "product.product",
+    "pk": 5,
+    "fields": {
+        "name": "Apple Tablet",
+        "product_type": 2,
+        "thumbnail": "product_thumnails/apple-tablet-kisspng-ipad-mini-2-ipad-pro-apple-laundry-tablets-5b4950_hWckCn9.jpg",
+        "description": "Apple Tab with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\nApple Tab with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\nApple Tab with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\nApple Tab with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2\r\nApple Tab with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\nModel: Aspire\r\nDimensions (mm): 63.50 x 31.00 x 40.60\r\nOperating system: Windows 10\r\nBattery Cell: 2",
+        "category": 3,
+        "price_amount": "98000.00",
+        "old_price": "105000.00",
+        "updated_at": "2020-04-01T16:44:31.280Z",
+        "charge_taxes": true,
+        "ratings": 5,
+        "slug": "abc-122"
+    }
+},
+{
+    "model": "product.product",
+    "pk": 6,
+    "fields": {
+        "name": "Hello maya how are you?",
+        "product_type": 4,
+        "thumbnail": "product_thumnails/hello-maya-how-are-you-images.png",
+        "description": "How a habit is formed? And how long does it take to form a new habit?\r\nPublished on April 2, 2020\r\nEdit article\r\nView stats\r\nRazz SawhoneyStatus is online\r\nRazz Sawhoney\r\nPython Django Developer | Good Hands on C/C++ | AI & ML Aspirant | Image Processing | NLP | Computer Vision|Fluttering\r\n1 article\r\nTo answer the above questions, I had put myself under a test for 21 days. It was more like a research(informal type) for me. The test was basically based on the following objectives:\r\n\r\nTo check the validity of the fact that \u201dIt takes 21 days to form a new habit\u201d.\r\nHow to completely eliminate any of your habits (bad ones) from your life?\r\nHow long does it take to remove old & bad habits and form a new one?\r\nTo discover the various factors behind the present young generation problem i.e Sleepiness.\r\nTo discover the best possible ways to form a good and new habit.\r\n\r\n\r\nNOO!!!\r\n\r\nAt the end of my test, I got a big NO for the very first objective.\r\n\r\nNo, it does not take 21 days.\r\n\r\nIn fact, it is either done in a split second or never.\r\n\r\nWhy? Because a habit in its basic form is a neural sequence hard-coded in your brain. Let\u2019s assume your brain as a memory card or hard disk drive and your habits(especially in this context) and various other things else as data stored in it. Let me consider an example to make it more clear to you. Let H1, H2, H3 be your three habits(data) stored in your hard disk(brain). And you want to get rid of habit H2 because that\u2019s a bad one for you and you want to form a new one in that place. The only way to make that possible is to override it with new data i.e new habit. But it\u2019s not that simple as is in case of memory read/write/update operation.\r\n\r\nHowever, in the case of human beings, the same protocol is not followed which is followed in case of memory card or hard disk drive. You cannot break your habits, I mean you cannot remove them completely from your life. The only thing you can do is manipulate them. More clearly if a habit is a pattern saved in your brain, you can \"overwrite\" this pattern with a new behavior in a new fashion or way.\r\n\r\nAnd before you learn how to override an old bad habit with a new habit, first of all, you need to understand how a habit is stored in your brain. It is saved in your neurons as a habit loop that consists of three elements: a cue(like time and condition-based recursive function call in any programming language) that triggers a routine; a routine that follows the trigger; and an endpoint that finishes the loop.\r\n\r\nA cue can be anything like a place, time of the day, your emotional state, even words or specific events. What is more, because of the associative nature of our memory, very often the cue is the set of specific conditions. If you are bored at work, it will trigger different behavior than being bored at home.\r\n\r\nChanging the trigger is impossible. The same set of conditions when met will always start the habit loop. For example, we all generally over-sleep on Saturday because we know its holiday and similarly we over-sleep when it\u2019s raining in the morning or it has rained last night. So here the holiday, the rain, etc are conditions responsible for triggering our habit loop. But it's not so, that you cannot change it or get rid of it. Obviously, you can get rid of it. It's all mind play. Your brain(mind) is responsible for all these funky behaviors. In order to beat your mind, you have to dodge it. Yes, you read it right. We have to dodge our brain(mind). We have to play a game with our minds. We have to lure our brains for something very interesting and something very satisfying. If you want to override any of your habits which you don\u2019t like with an entirely new one, then try to put some good & strong reason behind it, some kind of achievements which you're gonna achieve after you do so. This trick is really helpful, at least for me as it worked very well in my case and I\u2019m damn sure that it\u2019s gonna work for everyone else case too. See our brain and heart are like a little kid and we better know how to handle a kid. Simply lure your kid with some attracting sweets or dolls or anything which your kid is gonna like and get attracted. All I mean is you have to set some genuine goal, a genuine reason behind any of your habits you want to form. Only then you can override any of your existing habits with a brand new one. And trust me it's not gonna take you 21 days to form that habit or to make that habit a part of your life. I don\u2019t say so rather my experience says so. I always used to wake up at about 9-10 AM, but a radical change came to me in just 2-3 days of my test. All I did to change myself was a very sweet and attractive reason set behind.\r\n\r\nLeave it here and let me talk on my next objective of my test i.e various factors responsible for the young generation sleeping problem.\r\n\r\nWell, it\u2019s quite obvious to everyone and it is practically true as well. You\u2019re surely gonna wake up late in the day if you went for sleeping late at night. So, yes sleeping late at night is the primary reason behind this issue and there may be various reasons and factors involved behind this primary reason. The social media I guess lies top in the list. Yah, we young generation are like a veteran druggist at social media, Facebook coming first in the hit list and various others after it like Insta, TikTok, Likee, YouTube, WhatsApp, Viber, etc. We feel like, we just cannot live without them. In the present context, people feel like they are socially boycotted if they\u2019re not available on social media. But the truth isn\u2019t so. It\u2019s simply their misconception and their wrong mindset. Instead of thinking so we can think like we are different from others if we are not available on social media and being different has its own joy. Only a person like me can understand it well.\r\n\r\nMoving further Chatting unnecessarily on useless topics with the so-called virtual friends(Fb wala-wali,WhatsApp wala-wali ,Viber wala-wali) late at night is another notable factor. Playing mobile and desktop games like PUB-G, Free-Fire, EVE-Online, etc late at night are also responsible factors. Ohh how can I miss my fav i.e watching movies till the end one after another is another factor in the list. And the rests you can now add yourself to the list.\r\n\r\nWhat did I end up my test for 21 days with (Benefits)??\r\n\r\nLearned a lot about human behavior and emotions.\r\nFactors affecting human behavior and emotions.\r\nBest possible ways to override any existing behavior.\r\nActive enough to wake up early in the morning at about 5 AM.\r\nBuilt a habit of going jogging every morning and doing light exercises as my daily routine\r\nFinds myself active and fit the whole day.\r\nSummary:\r\n\r\nI have already mentioned the best possible ways to eliminate any bad habits and build a new one. And now I just want to polish them a little in the summary part. You(the young generation) yourself are the best possible solution to this problem. Hack yourself i.e try to know your behavior and emotions in-depth, various triggers responsible for starting your habit loop and then eliminate those with the trick I mentioned above. Just don\u2019t forget the verse \u201cDil aur Dimag toh bachcha hai Ji\u201d,(a hindi saying meaning \"brain and heart are like a little kids') and take necessary actions and tricks and play with them in the way you like.",
+        "category": 4,
+        "price_amount": "20000.00",
+        "old_price": "30000.00",
+        "updated_at": "2020-04-06T03:08:36.216Z",
+        "charge_taxes": true,
+        "ratings": 3,
+        "slug": "hello-maya-how-are-you"
+    }
+},
+{
+    "model": "product.product",
+    "pk": 7,
+    "fields": {
+        "name": "slug field test product",
+        "product_type": 2,
+        "thumbnail": "product_thumnails/slug-field-test-product-IMG_20200113_101550-removebg-preview_2.png",
+        "description": "Khai  k hunxa!",
+        "category": 3,
+        "price_amount": "12332.00",
+        "old_price": "14000.00",
+        "updated_at": "2020-04-02T14:22:04.069Z",
+        "charge_taxes": true,
+        "ratings": 3,
+        "slug": "slug-field-test-product"
+    }
+},
+{
+    "model": "product.product",
+    "pk": 8,
+    "fields": {
+        "name": "Apple Tablet",
+        "product_type": 2,
+        "thumbnail": "product_thumnails/apple-tablet-143-1434438_red-cute-monster-scary-surprise-sweet-cute-mo_8olXmHO.png",
+        "description": "",
+        "category": 3,
+        "price_amount": "12344.00",
+        "old_price": "14000.00",
+        "updated_at": "2020-04-02T14:14:46.839Z",
+        "charge_taxes": true,
+        "ratings": 4,
+        "slug": "apple-tablet"
+    }
+},
+{
+    "model": "product.product",
+    "pk": 9,
+    "fields": {
+        "name": "Apple Tablet",
+        "product_type": 2,
+        "thumbnail": "product_thumnails/apple-tablet-3d87ff40aca1735bffc64df3051224ce.jpg",
+        "description": "asdasd  asda",
+        "category": 3,
+        "price_amount": "18883.00",
+        "old_price": "14000.00",
+        "updated_at": "2020-04-02T14:21:41.468Z",
+        "charge_taxes": true,
+        "ratings": 3,
+        "slug": "apple-tablet-0f3j1"
+    }
+},
+{
+    "model": "product.product",
+    "pk": 12,
+    "fields": {
+        "name": "Testy Product Example",
+        "product_type": 6,
+        "thumbnail": "product_thumnails/test-product-example-unnamed-removebg-preview_9dF0M2V.png",
+        "description": "asdad",
+        "category": 1,
+        "price_amount": "23132.00",
+        "old_price": "24000.00",
+        "updated_at": "2020-04-04T14:37:40.835Z",
+        "charge_taxes": true,
+        "ratings": 1,
+        "slug": "gtest-product-example"
+    }
+},
+{
+    "model": "product.product",
+    "pk": 13,
+    "fields": {
+        "name": "One more product",
+        "product_type": 3,
+        "thumbnail": "product_thumnails/one-more-product-Untitled_9Suqfv0.jpg",
+        "description": "equest and response objects\u00b6\r\nQuick overview\u00b6\r\nDjango uses request and response objects to pass state through the system.\r\n\r\nWhen a page is requested, Django creates an HttpRequest object that contains metadata about the request. Then Django loads the appropriate view, passing the HttpRequest as the first argument to the view function. Each view is responsible for returning an HttpResponse object.\r\n\r\nThis document explains the APIs for HttpRequest and HttpResponse objects, which are defined in the django.http module.\r\n\r\nHttpRequest objects\u00b6\r\nclass HttpRequest\u00b6\r\nAttributes\u00b6\r\nAll attributes should be considered read-only, unless stated otherwise.\r\n\r\nHttpRequest.scheme\u00b6\r\nA string representing the scheme of the request (http or https usually).\r\n\r\nHttpRequest.body\u00b6\r\nThe raw HTTP request body as a bytestring. This is useful for processing data in different ways than conventional HTML forms: binary images, XML payload etc. For processing conventional form data, use HttpRequest.POST.\r\n\r\nYou can also read from an HttpRequest using a file-like interface. See HttpRequest.read().\r\n\r\nHttpRequest.path\u00b6\r\nA string representing the full path to the requested page, not including the scheme or domain.\r\n\r\nExample: \"/music/bands/the_beatles/\"\r\n\r\nHttpRequest.path_info\u00b6\r\nUnder some Web server configurations, the portion of the URL after the host name is split up into a script prefix portion and a path info portion. The path_info attribute always contains the path info portion of the path, no matter what Web server is being used. Using this instead of path can make your code easier to move between test and deployment servers.\r\n\r\nFor example, if the WSGIScriptAlias for your application is set to \"/minfo\", then path might be \"/minfo/music/bands/the_beatles/\" and path_info would be \"/music/bands/the_beatles/\".\r\n\r\nHttpRequest.method\u00b6\r\nA string representing the HTTP method used in the request. This is guaranteed to be uppercase. For exampl",
+        "category": 4,
+        "price_amount": "30000.00",
+        "old_price": "50000.00",
+        "updated_at": "2020-04-06T06:35:11.245Z",
+        "charge_taxes": true,
+        "ratings": 3,
+        "slug": "one-more-product"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 1,
+    "fields": {
+        "product": 1,
+        "product_images": "product_images/headphone-beat-download_1.jpg"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 2,
+    "fields": {
+        "product": 1,
+        "product_images": "product_images/headphone-beat-images_3.jpg"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 3,
+    "fields": {
+        "product": 1,
+        "product_images": "product_images/headphone-beat-headphones_PNG7645.png"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 4,
+    "fields": {
+        "product": 1,
+        "product_images": "product_images/headphone-beat-images_3_ojRQA5m.jpg"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 5,
+    "fields": {
+        "product": 2,
+        "product_images": "product_images/acer-a515-54g-15-12-gb-ram-i7-8th-gen-product01.png"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 6,
+    "fields": {
+        "product": 2,
+        "product_images": "product_images/acer-a515-54g-15-12-gb-ram-i7-8th-gen-product06.png"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 7,
+    "fields": {
+        "product": 2,
+        "product_images": "product_images/acer-a515-54g-15-12-gb-ram-i7-8th-gen-product08.png"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 8,
+    "fields": {
+        "product": 2,
+        "product_images": "product_images/acer-a515-54g-15-12-gb-ram-i7-8th-gen-product03.png"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 9,
+    "fields": {
+        "product": 3,
+        "product_images": "product_images/canon-dslr-camera-camera.png"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 10,
+    "fields": {
+        "product": 3,
+        "product_images": "product_images/canon-dslr-camera-images_1.jpg"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 11,
+    "fields": {
+        "product": 3,
+        "product_images": "product_images/canon-dslr-camera-images.jpg"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 12,
+    "fields": {
+        "product": 3,
+        "product_images": "product_images/canon-dslr-camera-download.jpg"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 13,
+    "fields": {
+        "product": 4,
+        "product_images": "product_images/hp-laptop-156-i7-8th-gen-8gb-ram-1tb-hdd-256gb-ssd-421-4210903_transparen_Hv4hNk7.png"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 14,
+    "fields": {
+        "product": 4,
+        "product_images": "product_images/hp-laptop-156-i7-8th-gen-8gb-ram-1tb-hdd-256gb-ssd-hplptp.jpg"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 15,
+    "fields": {
+        "product": 4,
+        "product_images": "product_images/hp-laptop-156-i7-8th-gen-8gb-ram-1tb-hdd-256gb-ssd-unnamed.png"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 16,
+    "fields": {
+        "product": 4,
+        "product_images": "product_images/hp-laptop-156-i7-8th-gen-8gb-ram-1tb-hdd-256gb-ssd-product01.png"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 17,
+    "fields": {
+        "product": 5,
+        "product_images": "product_images/apple-tablet-ipad-mini-4-ipad-pro-apple-computer-png-favpng-16jdABLYN0s96_CnxNP9k.jpg"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 18,
+    "fields": {
+        "product": 5,
+        "product_images": "product_images/apple-tablet-kisspng-ipad-mini-2-ipad-pro-apple-laundry-tablets-5b4950da0_8gideyZ.jpg"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 19,
+    "fields": {
+        "product": 5,
+        "product_images": "product_images/apple-tablet-207-2070950_apple-iphone-7-128-gb-rose-gold-unlocked.png"
+    }
+},
+{
+    "model": "product.productimage",
+    "pk": 20,
+    "fields": {
+        "product": 5,
+        "product_images": "product_images/apple-tablet-140-1405776_iphone-png-iphone-6s-rose-gold-clipart.png"
+    }
+},
+{
+    "model": "specialoffers.offer",
+    "pk": 1,
+    "fields": {
+        "occasion": "New Year 2077 Bumper Offers",
+        "category": 3,
+        "discount": 60,
+        "limited_for": "2020-04-13 00:00:00"
+    }
+},
+{
+    "model": "tags.producttag",
+    "pk": 1,
+    "fields": {
+        "title": "microphone",
+        "tagged_on": "2020-04-05T18:42:37.133Z",
+        "product": [
+            1
+        ]
+    }
+},
+{
+    "model": "tags.producttag",
+    "pk": 2,
+    "fields": {
+        "title": "black headphone",
+        "tagged_on": "2020-04-05T18:42:55.309Z",
+        "product": [
+            1
+        ]
+    }
+},
+{
+    "model": "tags.producttag",
+    "pk": 3,
+    "fields": {
+        "title": "beat headphone",
+        "tagged_on": "2020-04-05T18:43:26.939Z",
+        "product": [
+            1
+        ]
+    }
+},
+{
+    "model": "tags.producttag",
+    "pk": 4,
+    "fields": {
+        "title": "acer laptop",
+        "tagged_on": "2020-04-05T18:43:38.086Z",
+        "product": [
+            2
+        ]
+    }
+},
+{
+    "model": "tags.producttag",
+    "pk": 5,
+    "fields": {
+        "title": "i7 laptop",
+        "tagged_on": "2020-04-05T18:44:01.430Z",
+        "product": [
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "tags.producttag",
+    "pk": 6,
+    "fields": {
+        "title": "15 inch laptop",
+        "tagged_on": "2020-04-05T18:44:18.395Z",
+        "product": [
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "accounts.usermodel",
+    "pk": 1,
+    "fields": {
+        "user": 3,
+        "full_name": "Aayushi Nidhi",
+        "profile_pic": "user_profile_images/iuc-64246424_1071064839758578_968113627410202624_o.jpg"
+    }
+},
+{
+    "model": "accounts.usermodel",
+    "pk": 2,
+    "fields": {
+        "user": 2,
+        "full_name": "Razz SawHoney",
+        "profile_pic": "user_profile_images/razz-IMG_20200121_112810_2.jpg"
+    }
+},
+{
+    "model": "questions_ans.question",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "question": 1,
+        "description": "Hi Jaanu. k gardai xau?? Khana khaau? khana ma k k khaau? Aaj kaha kaha ghumau? Malai sangai lagenau ta aaj. Kin hola yasto mero Jaanu.",
+        "questioned_date": "2020-02-04T19:40:06.882Z"
+    }
+},
+{
+    "model": "questions_ans.question",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "question": 1,
+        "description": "I love you too my Dear. But one thing you are missing I guess. You are admin and admin's job is to answer others questions and query but you yourself are asking questions with the customer i.e. me.  Its not fair na Jaanu...:-)))",
+        "questioned_date": "2020-02-04T20:50:08.510Z"
+    }
+},
+{
+    "model": "questions_ans.question",
+    "pk": 3,
+    "fields": {
+        "user": 1,
+        "question": 12,
+        "description": "??????????",
+        "questioned_date": "2020-04-05T10:34:38.904Z"
+    }
+},
+{
+    "model": "questions_ans.question",
+    "pk": 4,
+    "fields": {
+        "user": 1,
+        "question": 12,
+        "description": "What sort of questions can I ask here Mr. Admin????",
+        "questioned_date": "2020-04-05T10:35:45.027Z"
+    }
+},
+{
+    "model": "questions_ans.question",
+    "pk": 5,
+    "fields": {
+        "user": 1,
+        "question": 12,
+        "description": "What sort of questions can I ask here Mr. Admin????",
+        "questioned_date": "2020-04-05T10:55:14.374Z"
+    }
+},
+{
+    "model": "questions_ans.question",
+    "pk": 6,
+    "fields": {
+        "user": 1,
+        "question": 13,
+        "description": "Hi can you tell what sort of Product it is????",
+        "questioned_date": "2020-04-11T02:21:36.742Z"
+    }
+},
+{
+    "model": "questions_ans.answer",
+    "pk": 1,
+    "fields": {
+        "user": 2,
+        "answer": 1,
+        "description": "Hello Jaanu! Khasai kei haina da. Timilai nai Samjher basi raxu. Khana khanu pni kasri eklai timi xainau yaha ma sang. Timrai samjhana ma aaj din bhari ghumai gareko. Love u Jaanu...Missing u a lot",
+        "answered_date": "2020-02-04T19:43:47.700Z"
+    }
+},
+{
+    "model": "questions_ans.answer",
+    "pk": 2,
+    "fields": {
+        "user": 2,
+        "answer": 1,
+        "description": "Ani aru k xa IUC? kei naya naulo. Malai kati ko samjhi rhanxau. Malai ta sodhnai pardaina. You are my everything for me. I am always busy in thinking about you. I can't express how much I love you...",
+        "answered_date": "2020-02-04T20:46:46.197Z"
+    }
+},
+{
+    "model": "questions_ans.answer",
+    "pk": 3,
+    "fields": {
+        "user": 2,
+        "answer": 2,
+        "description": "But my dear you are not any customer for me. You are mine and I am yours. So we can do here whatever we like. Love you IUC. Missing you:-)",
+        "answered_date": "2020-02-04T20:52:10.917Z"
+    }
+},
+{
+    "model": "questions_ans.answer",
+    "pk": 4,
+    "fields": {
+        "user": 2,
+        "answer": 3,
+        "description": "Yes yes ask ask whatever u wanna ask....",
+        "answered_date": "2020-04-06T10:20:42.489Z"
+    }
+}
+]
