@@ -1,0 +1,35 @@
+<!-- container -->
+<div class="container search-div">
+    <!-- row -->
+    <div class="row">
+        <!-- section title -->
+        <div class="col-md-12">
+            <div class="section-title">
+                {% if products %}
+                <h3 class="title">Showing results for '{{request.GET.q}}':</h3>
+                {% else %}
+                <h3 class="title text-warning">No result found for your keyword '{{request.GET.q}}' !!!</h3>
+                {% endif %}
+            </div>
+        </div>
+        <!-- /section title -->
+        <!-- Products tab & slick -->
+        <div class="col-md-12">
+            <div class="row">
+
+                <div class="products-tabs">
+                    <!-- tab -->
+                    <div id="tab1" class="tab-pane active">
+                        {% include "includes/product_view.html" with categoryctx=products %}
+                        <div id="slick-nav-1" class="products-slick-nav"></div>
+                    </div>
+                    <!-- /tab -->
+                </div>
+            </div>
+
+        </div>
+        <!-- Products tab & slick -->
+    </div>
+    <!-- /row -->
+</div>
+<!-- /container -->

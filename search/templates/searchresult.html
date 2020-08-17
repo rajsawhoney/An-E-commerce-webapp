@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block bodyblock %}
+{% if messages %}
+{% include "pop-up.html" with name=name imgurl=imgurl qty=qty ptype=ptype %}
+{% endif %}
+<!-- SECTION -->
+<div class="section search-div">
+    {% include "includes/search-result-snippet.html" %}
+</div>
+<!-- /SECTION -->
+
+
+<!-- NEWSLETTER -->
+{% include "includes/newsletter.html" with data='NewsLetter' %}
+<!-- /NEWSLETTER -->
+
+{% include "includes/footer.html" %}
+
+{% include "includes/scripts.html" %}
+
+
+{% endblock %}
