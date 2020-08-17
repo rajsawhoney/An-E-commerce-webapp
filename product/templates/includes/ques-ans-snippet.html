@@ -1,0 +1,114 @@
+<div class="row">
+    <div class="col-md-6">
+        <div id="reviews">
+            <ul class="reviews">
+                {% for question in questions %}
+                <li>
+                    <!-- Question -->
+                    <div class="review-heading">
+                        <img style="height: 30px;width:30px;border-radius: 50%;" src="{{question.user.profile_pic.url}}"
+                            width="50" alt="profile pic" />
+                        <h5 class="name">{{question.user|capfirst}}</h5>
+                        <p class="date">{{question.questioned_date}}</p>
+                        <!-- <p class="email">Email:{{que_ans.user.email}}</p> -->
+                    </div>
+                    <div class="review-body">
+                        <h2>
+                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                        </h2>
+                        <h5 class="question">{{question.description}}</h5>
+                        <p class="date text-muted">{{question.questioned_date|timesince}} ago &bnsp <button
+                                class="btn-primary btn-sm"
+                                onclick="$(`#{{question.id}}`).toggle('display');$('#answer-area{{question.id}}').focus();">Answer
+                                this
+                                question</button>
+                        </p>
+                    </div>
+                    {% if request.user.is_superuser %}
+                    <div id="{{question.id}}" style="display: none;">
+                        <div class="review-body">
+                            <form action="{% url 'product:ques-ans' slug=product.slug %}" class="ques-ans-form"
+                                method="post">
+                                <textarea class="form-control" name="description" id="answer-area{{question.id}}"
+                                    type="text" cols="50" rows="3" placeholder="Put your answer here..."
+                                    value="Cool"></textarea>
+                                <br>
+                                <input type="submit" value="Answer" class="btn btn-primary"></input>
+                                <input type="hidden" name="question_id" value="{{question.id}}">
+                            </form>
+                        </div>
+                    </div>
+                    {% endif %}
+                </li>
+                <!-- Question -->
+                <li>
+                    <!-- Answer -->
+
+                    {% for answer in question.answers.all %}
+
+                    <div class="review-heading">
+                        <img style="height: 30px;width:30px;border-radius: 50%;" src="{{answer.user.profile_pic.url}}"
+                            width="50px" alt="profile pic" />
+                        <h5 class="name">{{answer.user|capfirst}}</h5>
+                        <p class="date">{{answer.questioned_date}} </p>
+                    </div>
+                    <div class="review-body">
+                        <h3>
+                            <svg class="bi bi-reply-fill" width="1.3em" height="1em" viewBox="0 0 16 16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.079 11.9l4.568-3.281a.719.719 0 000-1.238L9.079 4.1A.716.716 0 008 4.719V6c-1.5 0-6 0-7 8 2.5-4.5 7-4 7-4v1.281c0 .56.606.898 1.079.62z" />
+                            </svg>
+
+                        </h3>
+                        <h6 class="description">
+                            {{answer.description}}
+                        </h6>
+                        <p class="text-muted date">{{answer.questioned_date|timesince}} ago </p>
+                    </div>
+                    {% endfor %}
+
+
+                    <!-- Answer -->
+                </li>
+                <!-- # Answer form only if is super_user -->
+
+                {% endfor %}
+
+            </ul>
+            {% if questions.count > 5 %}
+            <ul class="reviews-pagination">
+                <li class="active">1</li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li>
+                    <a href="#"><i class="fa fa-angle-right"></i></a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Questions Form -->
+    {% if not request.user.is_superuser %}
+    <div class="col-md-6">
+        <form action="{% url 'product:ques-ans' slug=product.slug %}" class="ques-ans-form" method="post">
+            {% csrf_token %}
+            <textarea class="form-control" name="descr" id="descr" type="text" cols="40" rows="3"
+                placeholder="Put your queries here..."></textarea>
+            <br>
+            <input type="submit" class="btn btn-primary" {% if not request.user.is_authenticated %} disabled
+                {% endif %}>
+            </input>
+        </form>
+        {% if not request.user.is_authenticated %}
+        <br>
+        <p>Please Login to put your Question here!</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- /Question Form -->
+
+</div>

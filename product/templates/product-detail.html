@@ -1,0 +1,410 @@
+{% extends "base.html" %} {% load static %}
+{% block bodyblock %}
+{% load account_tags %}
+{% load i18n %}
+
+<div class="wish-cart-status-div">
+  {% include "wish-cart-status-model.html" %}
+</div>
+
+
+<style>
+  .errorlist {
+    color: rgb(255, 123, 0);
+    text-shadow: aqua;
+    text-decoration: blue;
+    text-justify: auto;
+    font-size: large;
+    font-weight: 500;
+  }
+
+</style>
+
+
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="breadcrumb-tree">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="#">All Categories</a></li>
+          <li><a href="#">{{product.product_type}}</a></li>
+          <li><a href="{{product.category.get_absolute_url}}">{{product.category}}</a></li>
+          <li class="active">{{product.name}}</li>
+        </ul>
+      </div>
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- Product main img -->
+      <div class="col-md-5 col-md-push-2">
+        <div id="product-main-img">
+          {% if productImage %}
+          {% for pic in productImage %}
+          <div class="product-preview">
+            <img src="{{pic.product_images.url}}" alt="{{pic}}" height="400px">
+          </div>
+          {% endfor %}
+
+          {% else %}
+          <div class="product-preview">
+            <img src="{{product.thumbnail.url}}" alt="{{pic}}" height="450px" width="450px">
+          </div>
+          {% endif %}
+        </div>
+        <div>
+          {% if product.product_count == 0 %}
+          <span class="text-danger" style="font-Size:18px;font-weight: bold;">This Product is currently Out of
+            Stock!!!</span>
+          {% endif %}
+        </div>
+      </div>
+      <!-- /Product main img -->
+
+      <!-- Product thumb imgs -->
+      <div class="col-md-2  col-md-pull-5">
+        <div id="product-imgs">
+          {% for pic in productImage %}
+          <div class="product-preview">
+            <img src="{{pic.product_images.url}}" alt="{{pic}}" height="120px">
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- /Product thumb imgs -->
+
+      <!-- Product details -->
+      <div class="col-md-5">
+        <div class="product-details">
+          <h2 class="product-name">{{product.name}}</h2>
+          <div>
+            <div class="product-rating">
+              {% if product.overall_rating %}
+              {% for i in "x"|rjust:product.overall_rating %}
+              <i class="fa fa-star"></i>
+              {% endfor %}
+              {% if product.overall_rating < 5 %}
+              {% if product.overall_rating == 1 %}
+              {% for i in "x"|rjust:4 %}
+              <i class="fa fa-star-o"></i>
+              {% endfor %}
+              {% endif %}
+
+              {% if product.overall_rating == 2 %}
+              {% for i in "x"|rjust:3 %}
+              <i class="fa fa-star-o"></i>
+              {% endfor %}
+              {% endif %}
+
+              {% if product.overall_rating == 3 %}
+              {% for i in "x"|rjust:2 %}
+              <i class="fa fa-star-o"></i>
+              {% endfor %}
+              {% endif %}
+
+              {% if product.overall_rating == 4 %}
+              <i class="fa fa-star-o"></i>
+              {% endif %}
+
+              {% endif %}
+
+              {% else %}
+              {% for i in "x"|rjust:5 %}
+              <i class="fa fa-star-o"></i>
+              {% endfor %}
+
+              {% endif %}
+            </div>
+
+            <a class="review-link" href="#tab3" id="review-count">{{productReviews.count}} Review(s)
+              {% if request.user.is_authenticated %}
+              | Add your review {% else %}Login to add your review {% endif %} </a>
+          </div>
+          <div>
+            <h3 class="product-price">
+              NRs. {{product.price_amount}}
+              <del class="product-old-price">NRs. {{product.old_price}}</del>
+            </h3>
+            {% if product.product_count > 0 %}
+            <span class="product-available">In Stock</span>
+            {% else %}
+            <span class="product-unavailable">Out of Stock</span>
+            {% endif %}
+          </div>
+          <!-- <p>{{product.snippet|safe}}</p> -->
+
+          <div class="product-options">
+            <label>
+              Size
+              <select class="input-select">
+                <option value="0">X</option>
+              </select>
+            </label>
+            <label>
+              Color
+              <select class="input-select">
+                <option value="0">Red</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="add-to-cart">
+            <div class="qty-label">
+              Qty
+              <div class="input-number">
+                <input type="number" step="1" min="1" max="5" value="{{cartItems.count}}" autocomplete="on"
+                  height="50%">
+                <span class="qty-up">+</span>
+                <span class="qty-down">-</span>
+              </div>
+            </div>
+            <br> &nbsp
+            <form action="{% url 'cart:add-to-cart' pk=product.slug %}" class="add-to-cart" method="get">
+              <button class="add-to-cart-btn" id="{{product.slug}}"> <i class="fa fa-shopping-cart"></i>add to
+                cart</button>
+            </form>
+
+          </div>
+
+          <ul class="product-btns">
+            <li>
+              <form action="{% url 'cart:add-to-wishList' pk=product.slug %}" class="add-to-wish add-to-wishlist">
+                <button class="add-to-wishlist" id="wish-from-detail">
+                  {% if product in cart_obj.wishedProduct.all %}
+                  <i class="fa fa-heart fa-2x" style="color: red !important;"></i><span class="tooltipp text-capitalize"
+                    style="font-size: large;">Added to wishlist</span>
+                  {% else %}
+                  <i class="fa fa-heart-o fa-2x"></i>
+                  <span class="tooltipp text-capitalize" style="font-size: large;">add to wishlist</span>
+                  {% endif %}
+                </button>
+              </form>
+
+            </li>
+            <li>
+              <a href="compare-link#"><i class="fa fa-exchange"></i> add to compare</a>
+            </li>
+          </ul>
+
+          <ul class="product-links">
+            <li>Category:</li>
+            <li><a href="{{product.category.get_absolute_url}}">{{product.product_type}}</a></li>
+            <li><a href="{{product.category.get_absolute_url}}">{{product.category}}</a></li>
+          </ul>
+
+
+
+          <ul class="product-links">
+            <li>Share:</li>
+            <li>
+              <button class="btn-primary"
+                onclick="shareProduct(`https://www.facebook.com/sharer/sharer.php?u=http%3A//127.0.0.1%3A8000/products-detail/{{product.slug}}/`)"><i
+                  class="fa fa-facebook"></i></button>
+            </li>
+            <li>
+              <button class="btn-primary"
+                onclick="shareProduct(`https://twitter.com/intent/tweet?text=http%3A//127.0.0.1%3A8000/products-detail/{{product.slug}}/`)">
+                <i class="fa fa-twitter"></i>
+              </button>
+            </li>
+            <li>
+              <button class="btn-primary"
+                onclick="shareProduct(`https://www.linkedin.com/shareArticle?mini=true&url=http%3A//127.0.0.1%3A8000/products-detail/%7B%7B{{product.slug}}%7D%7D/&title=%7B%7B{{product.slug}}%7D%7D&summary=Have%20a%20look%20at%20this%20product.%20It's%20an%20amazing%20product.&source=Nepali%20Amazon`)">
+                <i class="fa fa-linkedin"></i>
+              </button>
+            </li>
+            <li>
+              <button class="btn-danger"
+                onclick="shareProduct(`https://pinterest.com/pin/create/button/?url=http%3A//127.0.0.1%3A8000/media/%7B%7B{{product.thumbnail}}%7D%7D/&media=http%3A//127.0.0.1%3A8000/products-detail/%7B%7B{{product.slug}}%7D%7D/&description=An%20Amazing%20Product`)">
+                <i class="fa fa-pinterest"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /Product details -->
+
+      <!-- Product tab -->
+      <div class="col-md-12">
+        <div id="product-tab">
+          <!-- product tab nav -->
+          <ul class="tab-nav">
+            <li class="{% if not 'review' in request.path and not 'question' in request.path %}
+              active
+              {% else %}
+              do
+            {% endif %}">
+              <a data-toggle="tab" href="#tab1"></a>
+            </li>
+            <li class="active">
+              <a data-toggle="tab" href="#tab2">Description</a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#tab3" id="review-count">Reviews ({{productReviews.count}})</a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#tab4" id="question-count">Customer Questions and Seller Answers
+                ({{questions.count}})</a>
+            </li>
+          </ul>
+          <!-- /product tab nav -->
+
+          <!-- product tab content -->
+          <div class="tab-content">
+            <!-- tab1  -->
+            <!-- <div id="tab1" class="tab-pane fade in">
+              <div class="row">
+                <div class="col-md-12">
+                  <p>{{product.snippet|safe}}</p>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- /tab1  -->
+
+            <!-- tab2  -->
+            <div id="tab2" class="tab-pane fade in active">
+              <div class="row">
+                <div class="col-md-12">
+                  <p>{{product.description|safe}}</p>
+                </div>
+              </div>
+            </div>
+            <!-- /tab2  -->
+
+            <!-- tab4  -->
+            <div id="tab4" class="tab-pane fade in {% if 'question' in request.path %} active {% endif %}">
+              <div class="ques-ans-div">
+                {% include "includes/ques-ans-snippet.html" %}
+              </div>
+            </div>
+            <!-- /tab4  -->
+
+            <!-- tab3  -->
+
+            <div id="tab3"
+              class="tab-pane fade in {% if 'review' in request.path %} active {% else %} inactive {% endif %} ">
+              <div class="review-div">
+                {% include "includes/review-snippet.html" %}
+              </div>
+            </div>
+            <!-- /tab3  -->
+          </div>
+          <!-- /product tab content  -->
+        </div>
+      </div>
+      <!-- /product tab -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- Section -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title text-center">
+          <h3 class="title">Related Products</h3>
+        </div>
+      </div>
+
+      {% for item in relatedProducts %}
+
+      <!-- product -->
+      <div class="col-md-3 col-xs-6">
+
+        <div class="product">
+          <div class="product-img">
+            <a href="{{item.get_absolute_url}}"><img src="{{item.thumbnail.url}}" height="225px" width="263px"
+                alt="" /></a>
+            <div class="product-label">
+              <span class="sale">{{item.discount}}</span>
+            </div>
+          </div>
+          <div class="product-body">
+            <p class="product-category">{{item.category}}</p>
+            <h3 class="product-name">
+
+              <a href="{{item.get_absolute_url}}"><span class='text-primary'>{{item.name}}</span></a>
+            </h3>
+            <h4 class="product-price">
+              NRs. {{item.price_amount|tostring}}<del class="product-old-price">NRs. {{item.old_price}}</del>
+            </h4>
+            <div class="product-rating"></div>
+            <div class="product-btns">
+              <form action="{% url 'cart:add-to-wishList' pk=item.slug %}" class="add-to-wish add-to-wishlist">
+                <button class="add-to-wishlist dark-mode" id="wish-from-detail">
+                  {% if item in cart_obj.wishedProduct.all %}
+                  <i class="fa fa-heart fa-2x" style="color: red !important;"></i><span class="tooltipp text-capitalize"
+                    style="font-size: large;">Added to wishlist</span>
+                  {% else %}
+                  <i class="fa fa-heart-o fa-2x"></i>
+                  <span class="tooltipp text-capitalize" style="font-size: large;">add to wishlist</span>
+                  {% endif %}
+                </button>
+              </form>
+              <button class="add-to-compare">
+                <a href="#compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></a>
+              </button>
+              <button class="quick-view">
+                <a href="{{item.get_absolute_url}}"><i class="fa fa-eye"></i><span class="tooltipp">quick
+                    view</span></a>
+              </button>
+            </div>
+          </div>
+          <div>
+            <form action="{% url 'cart:add-to-cart' pk=item.slug %}" class="add-to-cart add-to-cart1" method="get">
+              <button class="add-to-cart-btn" id="{{product.slug}}"> <i class="fa fa-shopping-cart"></i>add to
+                cart</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+      <!-- /product -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /Section -->
+
+<!-- NEWSLETTER -->
+{% include "includes/newsletter.html" %}
+<!-- /NEWSLETTER -->
+
+<!-- FOOTER -->
+{% include "includes/footer.html" %}
+<!-- /FOOTER -->
+
+<!-- jQuery Plugins -->
+{% include "includes/scripts.html" %}
+
+<script>
+  function shareProduct(url) {
+    location.assign(url);
+  }
+
+</script>
+
+{% endblock %}

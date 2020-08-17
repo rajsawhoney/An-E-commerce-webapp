@@ -1,0 +1,382 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block bodyblock %}
+
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- shop -->
+            {% for cat in maincategory %}
+            <div class="col-md-3 col-xs-6">
+                <div class="shop">
+                    <div class="shop-img">
+                        <img src="{{cat.background_image.url}}" alt="" height="250px">
+                    </div>
+                    <div class="shop-body">
+                        <h3>{{ cat.name }}<br>Collection</h3>
+                        <a href="{{cat.get_absolute_url}}" class="cta-btn">Shop now <i
+                                class="fafa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /shop -->
+            {% endfor %}
+            <!-- /shop -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h3 class="title dark-mode">New Products</h3>
+                    <div class="section-nav">
+                        <ul class="section-tab-nav tab-nav">
+                            <li class="active">
+                                <a data-toggle="tab" href="#taball">All</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#tab1">Laptops</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#tab2">Smartphones</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#tab3">Cameras</a></li>
+                            <li>
+                                <a data-toggle="tab" href="#tab4">Accessories</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /section title -->
+            <!-- Products tab & slick -->
+            <div class="col-md-12">
+                <div class="row">
+
+                    <div class="products-tabs">
+                        <!-- tab all -->
+                        <div id="taball" class="tab-pane active">
+                            {% include "includes/product_view.html" with categoryctx=new_products %}
+                            <div id="slick-nav-1" class="products-slick-nav"></div>
+                        </div>
+                        <!-- /tab all -->
+
+                        <!-- tab 1 -->
+                        <div id="tab1" class="tab-pane ">
+                            {% include "includes/product_view.html" with categoryctx=new_LAPTOP %}
+                            <!-- <div id="slick-nav-1" class="products-slick-nav"></div> -->
+                        </div>
+                        <!-- /tab 1 -->
+
+                        <!-- tab 2 -->
+                        <div id="tab2" class="tab-pane">
+                            {% include "includes/product_view.html" with categoryctx=new_SMARTPHONE %}
+                            <div id="slick-nav-1" class="products-slick-nav"></div>
+                        </div>
+                        <!-- /tab 2 -->
+
+                        <!-- tab 3 -->
+                        <div id="tab3" class="tab-pane">
+                            {% include "includes/product_view.html" with categoryctx=new_CAMERA %}
+                            <div id="slick-nav-1" class="products-slick-nav"></div>
+                        </div>
+                        <!-- /tab 3 -->
+
+                        <!-- tab 4 -->
+                        <div id="tab4" class="tab-pane">
+                            {% include "includes/product_view.html" with categoryctx=new_ACCESSORIES %}
+                            <!-- <div id="slick-nav-1" class="products-slick-nav"></div> -->
+                        </div>
+                        <!-- /tab 4 -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- Products tab & slick -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- HOT DEAL SECTION -->
+<div id="hot-deal" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hot-deal">
+                    <ul class="hot-deal-countdown">
+                        <li>
+                            <div>
+                                <h3 id='day'></h3>
+                                <span style="font-size: medium;">Days</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3 id='hour'></h3>
+                                <span style="font-size: medium;">Hours</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3 id='min'></h3>
+                                <span style="font-size: medium;">Mins</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3 id='sec'>60</h3>
+                                <span style="font-size: medium;">Secs</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <h2 class="text-uppercase"><i class="fa fa-heart text-danger" aria-hidden="true"></i>
+                        {{offers.0.occasion}} <i class="fa fa-heart text-danger" aria-hidden="true"></i></h2>
+                    <p style="align-content: center;">{{offers.0.category}} Up to {{offers.0.discount}}% OFF</p>
+                    <a class="primary-btn cta-btn" href="{% url 'product:product_list' %}">Shop now</a>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /HOT DEAL SECTION -->
+
+
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h3 class="title dark-mode">Top Selling</h3>
+                    <div class="section-nav">
+                        <ul class="section-tab-nav tab-nav">
+                            <li class="active">
+                                <a data-toggle="tab" href="#topall">All</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#tab5">Laptops</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#tab6">Smartphones</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#tab7">Cameras</a></li>
+                            <li>
+                                <a data-toggle="tab" href="#tab8">Accessories</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /section title -->
+            <!-- Products tab & slick -->
+            <div class="col-md-12">
+                <div class="row">
+
+                    <div class="products-tabs">
+
+                        <!-- top all -->
+                        <div id="topall" class="tab-pane active">
+                            {% include "includes/product_view.html" with categoryctx=top_products %}
+                            <div id="slick-nav-1" class="products-slick-nav"></div>
+                        </div>
+                        <!-- /top all -->
+
+                        <!-- tab 1 -->
+                        <div id="tab5" class="tab-pane active">
+                            {% include "includes/product_view.html" with categoryctx=top_LAPTOP %}
+                            <div id="slick-nav-1" class="products-slick-nav"></div>
+                        </div>
+                        <!-- /tab 1 -->
+
+                        <!-- tab 2 -->
+                        <div id="tab6" class="tab-pane">
+                            {% include "includes/product_view.html" with categoryctx=top_SMARTPHONE %}
+                            <div id="slick-nav-1" class="products-slick-nav"></div>
+                        </div>
+                        <!-- /tab 2 -->
+
+                        <!-- tab 3 -->
+                        <div id="tab7" class="tab-pane">
+                            {% include "includes/product_view.html" with categoryctx=top_CAMERA %}
+                            <div id="slick-nav-1" class="products-slick-nav"></div>
+                        </div>
+                        <!-- /tab 3 -->
+
+                        <!-- tab 4 -->
+                        <div id="tab8" class="tab-pane">
+                            {% include "includes/product_view.html" with categoryctx=top_ACCESSORIES %}
+                            <div id="slick-nav-1" class="products-slick-nav"></div>
+                        </div>
+                        <!-- /tab 4 -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- Products tab & slick -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-4 col-xs-6">
+                <div class="section-title">
+                    <h4 class="title dark-mode">Top selling</h4>
+                    <div class="section-nav">
+                        <div id="slick-nav-3" class="products-slick-nav"></div>
+                    </div>
+                </div>
+
+                <div class="products-widget-slick" data-nav="#slick-nav-3">
+                    <div>
+                        <!-- product widget -->
+                        {% for product in top_products %}
+
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <a href="{{product.get_absolute_url}}"><img src="{{product.thumbnail.url}}" width="50px"
+                                        alt=""></a>
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">{{product.category}}</p>
+                                <h3 class="product-name"><a href="{{product.get_absolute_url}}">{{product.name}}</a>
+                                </h3>
+                                <h4 class="product-price">NRs.
+                                    {{product.price_amount}} <del class="product-old-price">NRs.
+                                        {{product.old_price}}</del></h4>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                        <!-- /product widget -->
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xs-6">
+                <div class="section-title">
+                    <h4 class="title dark-mode">HOT selling</h4>
+                    <div class="section-nav">
+                        <div id="slick-nav-4" class="products-slick-nav"></div>
+                    </div>
+                </div>
+
+                <div class="products-widget-slick" data-nav="#slick-nav-4">
+                    <div>
+                        <!-- product widget -->
+                        {% for product in hot_products %}
+
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <a href="{{product.get_absolute_url}}"><img src="{{product.thumbnail.url}}" width="50px"
+                                        alt=""></a>
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">{{product.category}}</p>
+                                <h3 class="product-name"><a href="{{product.get_absolute_url}}">{{product.name}}</a>
+                                </h3>
+                                <h4 class="product-price">NRs.
+                                    {{product.price_amount}} <del class="product-old-price">NRs.
+                                        {{product.old_price}}</del></h4>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                        <!-- /product widget -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix visible-sm visible-xs"></div>
+
+            <div class="col-md-4 col-xs-6">
+                <div class="section-title">
+                    <h4 class="title dark-mode">NEW selling</h4>
+                    <div class="section-nav">
+                        <div id="slick-nav-5" class="products-slick-nav"></div>
+                    </div>
+                </div>
+
+                <div class="products-widget-slick" data-nav="#slick-nav-5">
+                    <div>
+                        <!-- product widget -->
+                        {% for product in new_products %}
+
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <a href="{{product.get_absolute_url}}"><img src="{{product.thumbnail.url}}" width="50px"
+                                        alt=""></a>
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">{{product.category}}</p>
+                                <h3 class="product-name"><a href="{{product.get_absolute_url}}">{{product.name}}</a>
+                                </h3>
+                                <h4 class="product-price">NRs.
+                                    {{product.price_amount}} <del class="product-old-price">NRs.
+                                        {{product.old_price}}</del></h4>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                        <!-- /product widget -->
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- NEWSLETTER -->
+{% include "includes/newsletter.html" with data='NewsLetter' %}
+<!-- /NEWSLETTER -->
+
+{% include "includes/footer.html" %}
+
+{% include "includes/scripts.html" %}
+
+{% include "includes/countdown.html" %}
+
+{% endblock %}

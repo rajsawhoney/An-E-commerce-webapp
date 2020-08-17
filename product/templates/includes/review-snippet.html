@@ -1,0 +1,190 @@
+<div class="row">
+    <!-- Rating -->
+    <div class="col-md-3">
+        <div id="rating">
+            <div class="rating-avg">
+                <span>{{product.overall_rating}}</span>
+                <div class="rating-stars">
+                    {% if product.overall_rating %}
+                    {% for i in "x"|rjust:product.overall_rating %}
+                    <i class="fa fa-star"></i>
+                    {% endfor %}
+                    {% if product.overall_rating < 5 %}
+                    {% if product.overall_rating == 1 %}
+                    {% for i in "x"|rjust:4 %}
+                    <i class="fa fa-star-o"></i>
+                    {% endfor %}
+                    {% endif %}
+
+                    {% if product.overall_rating == 2 %}
+                    {% for i in "x"|rjust:3 %}
+                    <i class="fa fa-star-o"></i>
+                    {% endfor %}
+                    {% endif %}
+
+                    {% if product.overall_rating == 3 %}
+                    {% for i in "x"|rjust:2 %}
+                    <i class="fa fa-star-o"></i>
+                    {% endfor %}
+                    {% endif %}
+
+                    {% if product.overall_rating == 4 %}
+                    <i class="fa fa-star-o"></i>
+                    {% endif %}
+
+                    {% endif %}
+
+                    {% else %}
+                    {% for i in "x"|rjust:5 %}
+                    <i class="fa fa-star-o"></i>
+                    {% endfor %}
+
+                    {% endif %}
+                </div>
+
+            </div>
+            <ul class="rating">
+                <li>
+                    <div class="rating-stars">
+                        {% for i in "x"|rjust:5 %}
+                        <i class="fa fa-star"></i>
+                        {% endfor %}
+                    </div>
+                    <div class="rating-progress">
+                        <div style="width: {{progress_bar5}}%;"></div>
+                    </div>
+                    <span class="sum">{{product.rating5count}}</span>
+                </li>
+                <li>
+                    <div class="rating-stars">
+                        {% for i in "x"|rjust:4 %}
+                        <i class="fa fa-star"></i>
+                        {% endfor %}
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <div class="rating-progress">
+                        <div style="width: {{progress_bar4}}%;"></div>
+                    </div>
+                    <span class="sum">{{product.rating4count}}</span>
+                </li>
+                <li>
+                    <div class="rating-stars">
+                        {% for i in "x"|rjust:3 %}
+                        <i class="fa fa-star"></i>
+                        {% endfor %}
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <div class="rating-progress">
+                        <div style="width: {{progress_bar3}}%;"></div>
+                    </div>
+                    <span class="sum">{{product.rating3count}}</span>
+                </li>
+                <li>
+                    <div class="rating-stars">
+                        {% for i in "x"|rjust:2 %}
+                        <i class="fa fa-star"></i>
+                        {% endfor %}
+                        {% for i in "x"|rjust:3 %}
+                        <i class="fa fa-star-o"></i>
+                        {% endfor %}
+                    </div>
+                    <div class="rating-progress">
+                        <div style="width: {{progress_bar2}}%;"></div>
+                    </div>
+                    <span class="sum">{{product.rating2count}}</span>
+                </li>
+                <li>
+                    <div class="rating-stars">
+                        <i class="fa fa-star"></i>
+                        {% for i in "x"|rjust:4 %}
+                        <i class="fa fa-star-o"></i>
+                        {% endfor %}
+                    </div>
+                    <div class="rating-progress">
+                        <div style="width: {{progress_bar1}}%;"></div>
+                    </div>
+                    <span class="sum">{{product.rating1count}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /Rating -->
+
+    <!-- Reviews -->
+    <div class="col-md-6">
+        <div id="reviews">
+            <ul class="reviews">
+                {% if productReviews %}
+                {% for review in productReviews %}
+                <li>
+                    <div class="review-heading">
+                        <img style="height: 30px;width:30px;border-radius: 50%;" src="{{review.user.profile_pic.url}}"
+                            width="50" alt="profile pic" />
+                        <h5 class="name">{{review.user|capfirst}}</h5>
+                        <p class="date">{{review.reviewed_date}}</p>
+                        <div class="review-rating">
+                            {% for i in "x"|rjust:review.rating %}
+                            <i class="fa fa-star"></i>
+                            {% endfor %}
+                            {% if review.rating < 5 %}
+                            <i class="fa fa-star-o"></i>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="review-body">
+                        <p>{{review.description}}</p>
+                        <p class="date text-muted">{{review.reviewed_date|timesince}} ago</p>
+                    </div>
+                </li>
+                {% endfor %}
+                {% endif %}
+                {% if not request.user.is_authenticated %}
+                <h3>Please login to write your Review</h3>
+                {% endif %}
+            </ul>
+            {% if productReviews.count > 5 %}
+            <ul class="reviews-pagination">
+                <li class="active">1</li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li>
+                    <a href="#"><i class="fa fa-angle-right"></i></a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- /Reviews -->
+
+    <!-- Review Form -->
+    <div class="col-lg-3">
+        <div id="review-form">
+            {% if request.user.is_authenticated %}
+            <form action="{% url 'product:review' slug=product.slug %}" method="POST" class="review-form">
+                {% csrf_token %}
+                <textarea class="form-control" name="review-desc" id="review-desc" type="text" cols="50" rows="3"
+                    placeholder="Leave your review here..."></textarea>
+                <br>
+                <div class="input-rating">
+                    <span>Your Rating: </span>
+                    <div class="stars">
+                        <input id="star5" name="rating" value="5" type="radio" /><label for="star5"></label>
+                        <input id="star4" name="rating" value="4" type="radio" /><label for="star4"></label>
+                        <input id="star3" name="rating" value="3" type="radio" /><label for="star3"></label>
+                        <input id="star2" name="rating" value="2" type="radio" /><label for="star2"></label>
+                        <input id="star1" name="rating" value="1" type="radio" /><label for="star1"></label>
+                    </div>
+                </div>
+                <input type="submit" class="primary-btn"></input>
+
+            </form>
+            {% endif %}
+        </div>
+    </div>
+    <!-- /Review Form -->
+</div>

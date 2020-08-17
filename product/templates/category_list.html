@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block bodyblock %}
+
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- shop -->
+            {% for cat in maincategory %}
+            <div class="col-md-3 col-xs-6">
+                <div class="shop">
+                    <div class="shop-img">
+                        <img src="{{cat.background_image.url}}" alt="" height="250px">
+                    </div>
+                    <div class="shop-body">
+                        <h3>{{ cat.name }}<br>Collection</h3>
+                        <a href="{{cat.get_absolute_url}}" class="cta-btn">Shop now <i
+                                class="fafa-arrow-circle-right"></i></a>
+                        <!-- <a href="{% url 'product:category_view' slug=cat.name %}" class="cta-btn">Shop now <i class="fafa-arrow-circle-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            <!-- /shop -->
+            {% endfor %}
+            <!-- /shop -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+
+<!-- NEWSLETTER -->
+{% include "includes/newsletter.html" with data='NewsLetter' %}
+<!-- /NEWSLETTER -->
+
+{% include "includes/footer.html" %}
+
+{% include "includes/scripts.html" %}
+
+
+{% endblock %}

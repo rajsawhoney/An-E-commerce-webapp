@@ -1,0 +1,130 @@
+body {
+    background-color: rgb(21, 32, 43);
+    color: #8D99AE;
+}
+
+#hot-deal.section {
+    padding: 60px 0px;
+    margin: 30px 0px;
+    border: 1px solid;
+    background-image: url(http://127.0.0.1:8000/media/product_thumnails/test-on-ckeditor-working-IMG_20200113_1yt226191.jpg) !important;
+    background-position: center !important;
+    background-blend-mode: multiply !important;
+    background-size: cover;
+
+}
+
+#top-header {
+    background-color: rgb(21, 32, 43) !important;
+}
+
+.product .product-body,
+#hot-deal {
+    background-color: rgb(21, 32, 43);
+}
+
+#header {
+    color: #8D99AE;
+    background-image: url(http://127.0.0.1:8000/static/img/modal-bg.jpg) !important;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #8D99AE !important;
+}
+
+.input-select,
+.input {
+    background: rgb(21, 32, 43) !important;
+    color: #8D99AE !important;
+}
+
+
+#navigation,
+#breadcrumb,
+.add-to-wishlist {
+    background: rgb(21, 32, 43);
+}
+
+#breadcrumb .breadcrumb-tree li a {
+    color: #8D99AE !important;
+}
+
+.nav>li>a,
+.product-name,
+.section-title .title,
+.name,
+.fa-star-o,
+.fa {
+    color: #8D99AE !important;
+    ;
+}
+
+.fa-star {
+    color: red !important;
+}
+
+.cart-btns>a:first-child {
+    background-color: rgb(117, 120, 254) !important;
+}
+
+.review-link,
+a {
+    color: #8D99AE;
+}
+
+#product-tab .tab-nav li {
+    background-color: rgb(21, 32, 43);
+}
+
+.input-number input[type="number"] {
+    background-color: rgb(21, 32, 43);
+}
+
+#product-main-img .zoomImg {
+    background-color: rgb(21, 32, 43);
+}
+
+.cart-dropdown {
+    background: rgb(21, 32, 43) !important;
+}
+
+.btn {
+    background-color: rgb(21, 32, 43);
+    border: 1px solid #8D99AE;
+
+}
+
+.btn:hover {
+    color: white;
+    font-weight: bold;
+    background-color: rgba(7, 53, 50, 0.774);
+
+}
+
+.close {
+    color: #8D99AE !important;
+}
+
+.modal-content,
+table,
+.container-fluid,
+.jumbotron,
+tr,
+th,
+td {
+    background-color: rgb(21, 32, 43) !important;
+    color: #8D99AE !important;
+}
+
+.add-to-cart1 {
+    background-color: rgb(21, 32, 43) !important;
+    color: #8D99AE !important;
+    box-shadow: 0px 2px 12px !important;
+    margin-bottom: 4%;
+}

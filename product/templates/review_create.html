@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Review</title>
+</head>
+<body>
+    <h1>This is a review page. Please create your review below</h1>
+    <form action="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <input type="submit" value="Save">
+    
+    </form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block bodyblock %}
+
+<div class='container text-justify '>
+    <div>
+
+        <h1 class="text-primary" style="padding-left: 70px; padding-bottom: 30px;">{% trans 'Create New Product' %}</h1>
+        <form class='site-form' action="{% url 'accounts:login' %}" method="post">
+            {% csrf_token %}
+            <div class="container row">
+                {{form.as_p}}
+            </div>
+    </div>
+    <input class="btn btn-sm btn-block btn-primary text-uppercase" type="submit" value='Create'>
+
+    </form>
+</div>
+
+
+
+<style>
+    .btn-primary {
+        margin-bottom: 8px;
+        box-shadow: 1px 3px 3px 1px black;
+    }
+
+    .custom {
+        padding-bottom: 50px;
+    }
+
+</style>
+
+
+<!-- NEWSLETTER -->
+{% include "includes/newsletter.html" %}
+<!-- /NEWSLETTER -->
+
+<!-- FOOTER -->
+{% include "includes/footer.html" %}
+<!-- /FOOTER -->
+
+<!-- jQuery Plugins -->
+{% include "includes/scripts.html" %}
+{% endblock  %}

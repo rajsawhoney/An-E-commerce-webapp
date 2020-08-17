@@ -1,0 +1,22 @@
+body {
+    background: white;
+}
+
+#top-header {
+    background-color: #1E1F29;
+}
+
+#header {
+    background-color: rgb(145, 152, 226) !important;
+}
+
+#hot-deal.section {
+    padding: 60px 0px;
+    margin: 30px 0px;
+    border: 1px solid;
+    background-image: url(http://127.0.0.1:8000/media/product_thumnails/one-more-product-Untitled_9Suqfv0.jpg) !important;
+    background-position: center;
+    background-blend-mode: multiply !important;
+    background-size: cover;
+
+}
